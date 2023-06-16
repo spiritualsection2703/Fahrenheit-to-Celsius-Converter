@@ -1,17 +1,40 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
+double tempFaren();
+double tempCel(double tempf);
+
+
+double tempFaren()
+{
+	double tempf;
+
+	std::cout << "What is the temperature in your city: ";
+	cin >> tempf;
+
+	return tempf;
+}
+
+double tempCel(double tempf)
+{
+	double tempC = (tempf - 32) / 1.8;
+
+	return tempC;
+
+}
 
 
 int main()
 {
 
-	double tempf = 78.0; //This tempature is currently of New York. Temperatures of Cities may vary.
-	double tempc;
 
-	tempc = (tempf - 32) / 1.8; // formula to convert a temperature from Fahrenheit (F) to Celsius (C)
 
-	std::cout << "The Temperature is " << tempc << " degrees Celsius." << '\n';
+	double temperature = tempFaren();
+	double celcius = tempCel(temperature);
+
+	cout << "The Temperature in your city is " << temperature << " (f) degrees." << '\n';
+	cout << "The Temperature in your city is " << fixed << setprecision(1) << celcius << " (C) degrees. ";
 
 
 	return 0;
